@@ -1,0 +1,381 @@
+/* Chocoli — tema cacau & cereja (Inspirado em Cafeterias Artesanais) */
+:root {
+  --fundo: #170a08;       /* Fundo principal mais profundo e rico */
+  --fundo-2: #24110e;     /* Cartões e superfícies levemente elevadas */
+  --fundo-elevado: #301813; /* Hover de cartões */
+  --topo: #120604;
+  --vinho: #7a1e2d;       /* Tom de cereja mais marcante */
+  --vinho-claro: #9e2a3c;
+  --borda: #42221b;       /* Bordas mais suaves e elegantes */
+  --borda-hover: #6b352b;
+  --creme: #f5e6d3;       /* Títulos com mais contraste e suavidade */
+  --texto: #d1bda9;       /* Texto cor de linho acolhedor */
+  --dourado: #d4af82;     /* Dourado refinado para detalhes */
+  --serif: "Fraunces", Georgia, "Times New Roman", serif;
+  --sans: "Karla", "Segoe UI", system-ui, sans-serif;
+  --sombra-card: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--fundo);
+  color: var(--texto);
+  font: 1.0625rem/1.65 var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: var(--dourado); transition: color .2s; }
+a:hover { color: var(--creme); }
+
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--dourado);
+  outline-offset: 3px;
+}
+
+/* ---------- Cabeçalho e menu refinados ---------- */
+#topo {
+  background: var(--topo);
+  border-bottom: 1px solid var(--borda);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(8px);
+  background: rgba(18, 6, 4, 0.92);
+}
+.topo-in {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+}
+.marca {
+  font: italic 700 1.7rem var(--serif);
+  color: var(--creme);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+  transition: opacity .2s;
+}
+.marca:hover { opacity: 0.85; }
+
+#menu { display: flex; flex-wrap: wrap; gap: 4px 8px; }
+#menu a {
+  color: var(--texto);
+  text-decoration: none;
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: all .25s ease;
+}
+#menu a:hover { 
+  color: var(--creme); 
+  background: rgba(212, 175, 130, 0.08);
+}
+#menu a[aria-current="page"] { 
+  color: var(--fundo); 
+  background: var(--dourado); 
+  font-weight: 800;
+}
+
+/* ---------- Carrossel Principal ---------- */
+.meio { display: flex; justify-content: center; }
+#principal { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+.carrossel {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 21 / 9;
+  max-height: 460px;
+  margin: 32px auto;
+  overflow: hidden;
+  border-radius: 24px;
+  background: var(--fundo-2);
+  border: 1px solid var(--borda);
+  box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.9);
+}
+.slides, .slide { width: 100%; height: 100%; }
+.slides { position: relative; }
+.slide {
+  position: absolute;
+  inset: 0;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity .8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.slide.ativo { opacity: 1; z-index: 2; }
+
+.seta {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  font-size: 1.1rem;
+  color: var(--creme);
+  background: rgba(18, 6, 4, 0.65);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(212, 175, 130, 0.2);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all .25s ease;
+}
+.seta:hover { background: var(--vinho); border-color: var(--vinho-claro); transform: translateY(-50%) scale(1.05); }
+.seta.esquerda { left: 16px; }
+.seta.direita { right: 16px; }
+
+.bolinhas {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 6px 12px;
+  border-radius: 20px;
+  backdrop-filter: blur(4px);
+}
+.bolinhas span {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: all .3s ease;
+}
+.bolinhas .ativa { background: var(--dourado); width: 22px; border-radius: 6px; }
+
+/* ---------- Conteúdo ---------- */
+#conteudo { max-width: 780px; margin: 0 auto; padding: 32px 20px 64px; }
+
+h1, h2 {
+  font-family: var(--serif);
+  color: var(--creme);
+  line-height: 1.25;
+  text-wrap: balance;
+}
+h1 { font-size: clamp(2rem, 4.5vw, 2.8rem); margin: 0 0 20px; font-weight: 700; }
+h2 {
+  font-size: 1.7rem;
+  margin: 52px 0 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--borda);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+h2::before {
+  content: "✦";
+  font-size: 1rem;
+  color: var(--dourado);
+}
+
+.lead { font-size: 1.25rem; color: var(--creme); font-weight: 300; line-height: 1.6; }
+p { margin: 0 0 18px; color: var(--texto); }
+
+hr { border: 0; border-top: 1px solid var(--borda); margin: 48px 0; }
+
+.destaques { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 12px; }
+.destaques li {
+  background: var(--fundo-2);
+  border: 1px solid var(--borda);
+  border-left: 3px solid var(--dourado);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--creme);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.valores {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 28px;
+  list-style: none;
+  padding: 24px 0 0;
+  margin: 32px 0 0;
+  border-top: 1px solid var(--borda);
+  font-weight: 600;
+  color: var(--creme);
+}
+
+/* Itens de cardápio com preço e pontilhado refinado */
+.itens { list-style: none; padding: 0; margin: 0; }
+.itens li { 
+  padding: 16px 0; 
+  border-bottom: 1px dashed rgba(66, 34, 27, 0.6);
+  transition: transform .2s;
+}
+.itens li:hover { transform: translateX(4px); }
+.item-topo { display: flex; align-items: baseline; gap: 12px; }
+.item-topo strong { font: 700 1.2rem var(--serif); color: var(--creme); }
+.linha { flex: 1; border-bottom: 1.5px dotted var(--dourado); opacity: 0.4; transform: translateY(-4px); }
+.preco { font-weight: 700; color: var(--dourado); white-space: nowrap; font-size: 1.1rem; }
+.itens p { margin: 4px 0 0; font-size: .95rem; opacity: 0.9; }
+
+/* Trufas / Seções em destaque */
+.trufa { display: grid; grid-template-columns: 1fr; gap: 20px; margin: 40px 0; }
+.img-campanha {
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+  border: 1px solid var(--borda);
+  padding: 10px;
+  background: var(--fundo-2);
+  box-shadow: var(--sombra-card);
+}
+.trufa .img-campanha { aspect-ratio: 16 / 10; object-fit: cover; }
+.trufa h2 { margin: 0; border: 0; padding: 0; }
+.trufa h2::before { display: none; }
+
+/* Contato */
+.contato { 
+  display: grid; 
+  grid-template-columns: max-content 1fr; 
+  gap: 14px 24px; 
+  margin: 32px 0 0; 
+  background: var(--fundo-2);
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px solid var(--borda);
+}
+.contato dt { font-weight: 700; color: var(--creme); }
+.contato dd { margin: 0; }
+.galeria { margin-top: 40px; }
+
+/* Botões Estilo Madame Cherie */
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--fundo);
+  background: var(--creme);
+  border: 1px solid var(--creme);
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(245, 230, 211, 0.15);
+  transition: all .25s ease;
+}
+.btn:hover { 
+  background: var(--dourado); 
+  border-color: var(--dourado); 
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(212, 175, 130, 0.25);
+}
+.btn-contorno { background: transparent; color: var(--creme); box-shadow: none; border-color: var(--borda-hover); }
+.btn-contorno:hover { background: var(--creme); color: var(--fundo); border-color: var(--creme); }
+
+/* ---------- Rodapé ---------- */
+#rodape { 
+  background: var(--topo); 
+  border-top: 1px solid var(--borda); 
+  color: var(--texto); 
+  text-align: center; 
+  padding: 32px 20px; 
+}
+#rodape #status-loja { font-weight: 700; margin: 0 0 12px; font-size: 1.05rem; }
+#rodape #status-loja::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: #999;
+}
+#rodape #status-loja.aberto::before { background: #4caf6f; box-shadow: 0 0 8px #4caf6f; }
+#rodape #status-loja.fechado::before { background: #d9534f; }
+#rodape p { margin: 0; font-size: .95rem; opacity: 0.8; }
+
+/* ---------- Carrossel "Mais pedidos" (Cards de Cafeteria) ---------- */
+.mais-pedidos { position: relative; margin-top: 40px; }
+.mp-trilho {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  padding: 8px 4px 20px;
+}
+.mp-trilho::-webkit-scrollbar { display: none; }
+
+.mp-card {
+  flex: 0 0 240px;
+  scroll-snap-align: start;
+  background: var(--fundo-2);
+  border: 1px solid var(--borda);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--sombra-card);
+  transition: all .3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.mp-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--borda-hover);
+  background: var(--fundo-elevado);
+  box-shadow: 0 16px 35px -10px rgba(0, 0, 0, 0.7);
+}
+
+.mp-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; transition: transform .4s ease; }
+.mp-card:hover img { transform: scale(1.04); }
+
+.mp-card div { padding: 16px; }
+.mp-card h3 { margin: 0 0 6px; font: 700 1.1rem var(--serif); color: var(--creme); }
+.mp-card p { margin: 0 0 12px; font-size: .88rem; color: var(--texto); opacity: 0.85; line-height: 1.5; }
+.mp-card .preco { font-size: 1rem; }
+
+.mp-seta {
+  position: absolute;
+  top: 42%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--borda);
+  border-radius: 50%;
+  background: rgba(23, 10, 8, 0.85);
+  backdrop-filter: blur(4px);
+  color: var(--creme);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: all .25s ease;
+}
+.mp-seta:hover { background: var(--vinho); border-color: var(--vinho-claro); transform: translateY(-50%) scale(1.08); }
+#mp-anterior { left: -16px; }
+#mp-proximo { right: -16px; }
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 640px) {
+  .carrossel { aspect-ratio: 4 / 3; border-radius: 16px; margin: 20px auto; }
+  .seta { width: 38px; height: 38px; }
+  .contato { grid-template-columns: 1fr; gap: 4px; padding: 18px; }
+  .contato dd { margin-bottom: 12px; }
+  #mp-anterior { left: -6px; }
+  #mp-proximo { right: -6px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .slide, .bolinhas span, .mp-card, .btn { transition: none; }
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cardápio | Chocolateria Chocoli</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,700&family=Karla:wght@400;700&display=swap">
+  <link rel="stylesheet" href="escss/estilo.css">
+</head>
+<body>
+
+  <header id="topo">
+    <div class="topo-in">
+      <a class="marca" href="index.html">Chocoli</a>
+      <nav id="menu" aria-label="Menu principal">
+      <a href="index.html">Home</a>
+      <a href="biografia.html">Biografia</a>
+      <a href="Bebidas.html">Bebidas</a>
+      <a href="Cardapio.html" aria-current="page">Cardápio</a>
+      <a href="contato.html">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="principal">
+
+    <div class="carrossel" aria-label="Galeria de imagens">
+        <div class="slides">
+          <img src="imagens/chocos.png" class="slide ativo" alt="Chocolates">
+          <img src="imagens/trufalaraja.jpg" class="slide" alt="Trufa de laranja" loading="lazy">
+          <img src="imagens/bebidas1.png" class="slide" alt="Coquetéis" loading="lazy">
+          </div>
+        <div class="controles">
+          <button class="seta esquerda" aria-label="Imagem anterior">&#10094;</button>
+          <button class="seta direita" aria-label="Próxima imagem">&#10095;</button>
+        </div>
+        <div class="bolinhas"></div>
+      </div>
+
+    <div id="conteudo">
+
+      <h1>🍫 Cardápio de trufas com licor & coquetéis artesanais 🍸</h1>
+      <p class="lead">Trufas artesanais recheadas com ganaches aromatizadas aos mais finos licores. Sinta o sabor da indulgência em cada mordida. Todos os coquetéis são preparados na hora com ingredientes frescos e selecionados.</p>
+
+      <h2>⭐ Mais pedidos</h2>
+      <div class="mais-pedidos">
+        <button class="mp-seta" id="mp-anterior" aria-label="Anterior">&#10094;</button>
+        <div class="mp-trilho" id="mp-trilho"></div>
+        <button class="mp-seta" id="mp-proximo" aria-label="Próximo">&#10095;</button>
+      </div>
+
+      <img src="imagens/cardapio.png" class="img-campanha" alt="Cardápio de trufas">
+      <img src="imagens/bebidas.png" class="img-campanha" alt="Cardápio de bebidas" loading="lazy">
+      <hr>
+      <article class="trufa">
+        <h2>🌿 Trufa de licor de menta</h2>
+        <img src="imagens/trufamenta.jpg" class="img-campanha" alt="Trufa de menta" loading="lazy">
+        <p>Refrescante e intensa: ganache de chocolate meio amargo com licor de menta, finalizada com folhas cristalizadas de hortelã.</p>
+      </article>
+      <article class="trufa">
+        <h2>🍹 Trufa de licor de maracujá</h2>
+        <img src="imagens/trufamaracuja.png" class="img-campanha" alt="Trufa de maracujá" loading="lazy">
+        <p>Ganache vibrante de maracujá com licor, envolta em chocolate branco e decorada com sementes de maracujá caramelizadas.</p>
+      </article>
+      <article class="trufa">
+        <h2>🍒 Trufa de licor de cereja</h2>
+        <img src="imagens/trufacereja.webp" class="img-campanha" alt="Trufa de cereja" loading="lazy">
+        <p>Ganache de chocolate ao leite com licor de cereja, com um toque levemente amendoado e finalizada com cereja glaceada no topo.</p>
+      </article>
+    </div>
+
+  </main>
+
+  <footer id="rodape">
+    <p id="status-loja"></p>
+    <p>© 2025 Chocolateria Chocoli. Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="js.js"></script>
+</body>
+</html>

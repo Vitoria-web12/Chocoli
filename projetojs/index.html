@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home | Chocolateria Chocoli</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,700&family=Karla:wght@400;700&display=swap">
+  <link rel="stylesheet" href="escss/estilo.css">
+</head>
+<body>
+
+  <!-- Cabeçalho Fixo -->
+  <header id="topo">
+    <div class="topo-in">
+      <a class="marca" href="index.html">Chocoli</a>
+      <nav id="menu" aria-label="Menu principal">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="biografia.html">Biografia</a>
+        <a href="Bebidas.html">Bebidas</a>
+        <a href="Cardapio.html">Cardápio</a>
+        <a href="contato.html">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="principal">
+
+    <!-- Seção do Carrossel Principal -->
+    <section class="carrossel" aria-label="Galeria de imagens">
+      <div class="slides">
+        <img src="imagens/truf.png" class="slide ativo" alt="Trufas artesanais variadas">
+        <img src="imagens/fundobebidas.png" class="slide" alt="Coquetéis artesanais exclusivos" loading="lazy">
+        <img src="imagens/trufamaracuja.png" class="slide" alt="Trufa especial de maracujá" loading="lazy">
+      </div>
+      <div class="controles">
+        <button class="seta esquerda" aria-label="Imagem anterior">&#10094;</button>
+        <button class="seta direita" aria-label="Próxima imagem">&#10095;</button>
+      </div>
+      <div class="bolinhas" aria-label="Indicadores de slides"></div>
+    </section>
+
+    <!-- Conteúdo Principal da Página -->
+    <div id="conteudo">
+
+      <!-- Seção de Boas-Vindas / Hero -->
+      <section class="hero-secao">
+        <h1>Chocoli — Chocolateria & Bebidas Artesanais</h1>
+        <p class="lead">“Sinta o sabor do carinho em cada pedaço.” Delicie-se com chocolates artesanais e bebidas exclusivas, direto do coração da Chocoli para você.</p>
+        <div class="botoes-acao">
+          <a class="btn" href="Cardapio.html">Ver cardápio completo</a>
+          <a class="btn btn-contorno" href="biografia.html">Nossa história</a>
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- Seção de Destaques (Trufas Alcoólicas) -->
+      <section class="secao-destaques">
+        <h2>Trufas alcoólicas em destaque</h2>
+        <p>Uma seleção única de trufas, criadas com os mais finos ingredientes e licores renomados para paladares exigentes.</p>
+        
+        <ul class="destaques">
+          <li>Licor de Amarula</li>
+          <li>Licor de Café</li>
+          <li>Whisky Bourbon</li>
+          <li>Licor de Laranja</li>
+          <li>Vinho do Porto</li>
+        </ul>
+      </section>
+
+      <hr>
+
+      <!-- Carrossel / Seção "Mais Pedidos" -->
+      <section class="mais-pedidos">
+        <h2>Mais pedidos da casa</h2>
+        <p>Descubra os sabores favoritos dos nossos clientes.</p>
+        
+        <div style="position: relative;">
+          <button id="mp-anterior" class="mp-seta" aria-label="Item anterior">&#10094;</button>
+          <div id="mp-trilho" class="mp-trilho">
+            <!-- Os cards são injetados dinamicamente via JavaScript -->
+          </div>
+          <button id="mp-proximo" class="mp-seta" aria-label="Próximo item">&#10095;</button>
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- Seção de Valores / Filosofia -->
+      <section class="secao-valores">
+        <p>Na Chocoli, cada receita é feita com amor, ingredientes selecionados e um toque de criatividade artesanal.</p>
+        <ul class="valores">
+          <li>🌱 Artesanal</li>
+          <li>🌎 Sustentável</li>
+          <li>💝 Feito com amor</li>
+        </ul>
+      </section>
+
+    </div>
+
+  </main>
+
+  <!-- Rodapé -->
+  <footer id="rodape">
+    <p id="status-loja"></p>
+    <p>© 2025 Chocolateria Chocoli. Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="js.js"></script>
+</body>
+</html>
